@@ -128,21 +128,20 @@ export default function Home() {
       {/* ===== HERO / VIDEO SECTION ===== */}
       <section id="home" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <video
-            ref={(el) => {
-              if (el) {
-                el.playsInline = true;
-                el.muted = true;
-                el.autoplay = true;
-                el.play().catch(() => {});
-              }
+          <div
+            className="absolute inset-0 z-0"
+            dangerouslySetInnerHTML={{
+              __html: `
+                <video
+                  class="w-full h-full object-cover scale-[1.05]"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  src="/grd-website-vid.mp4"
+                ></video>
+              `,
             }}
-            className="w-full h-full object-cover scale-[1.05]"
-            autoPlay
-            muted
-            loop
-            playsInline
-            src="/grd-website-vid.mp4"
           />
           <div className="absolute inset-0 gradient-hero-overlay z-[1]"></div>
         </div>
