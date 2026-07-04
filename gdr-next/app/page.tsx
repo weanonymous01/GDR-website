@@ -129,6 +129,14 @@ export default function Home() {
       <section id="home" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
+            ref={(el) => {
+              if (el) {
+                el.playsInline = true;
+                el.muted = true;
+                el.autoplay = true;
+                el.play().catch(() => {});
+              }
+            }}
             className="w-full h-full object-cover scale-[1.05]"
             autoPlay
             muted
